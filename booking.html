@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book — Small Heaven</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html"><img src="assets/logo.png" alt="Small Heaven" style="height:70px;vertical-align:middle"></a>
+      <nav class="nav">
+        <a href="rituals.html">The Rituals</a>
+        <a href="about.html">About</a>
+        <a href="goddesses.html">Our Goddesses</a>
+        <a href="discretion.html">Discretion</a>
+        <a href="booking.html" class="btn">Book</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="booking">
+      <h1>Reserve Your Moment</h1>
+      <p class="intro" style="font-size:1.05rem;font-style:italic">When you feel the pull, follow it.</p>
+
+      <form id="bookingForm">
+        <label>Your name
+          <input type="text" id="name" placeholder="How should we address you?" required>
+        </label>
+
+        <label>Contact
+          <input type="tel" id="phone" placeholder="072 777 7777" required>
+        </label>
+
+        <label>Which ritual calls to you?
+          <select id="experience">
+            <option>The Awakening — 60m | R950</option>
+            <option>The Gentle Surrender — 90m | R1,300</option>
+            <option>The Heaven Hour — 120m | R1,800</option>
+          </select>
+        </label>
+
+        <label>When would you like to arrive?
+          <input type="datetime-local" id="datetime" placeholder="Preferred date & time">
+        </label>
+
+        <p class="small">All bookings are handled discreetly and personally. By reserving, you confirm you are 18+ and have read our discretion & boundaries.</p>
+
+        <button type="button" id="waBtn" class="cta">Begin a Private Conversation</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p style="font-style:italic;margin-bottom:16px">Soft seduction. Sacred escape.</p>
+      <p><a href="contact.html">Get in touch</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('waBtn').addEventListener('click', function () {
+      const name = encodeURIComponent(document.getElementById('name').value || '');
+      const phone = encodeURIComponent(document.getElementById('phone').value || '');
+      const exp = encodeURIComponent(document.getElementById('experience').value);
+      const dt = encodeURIComponent(document.getElementById('datetime').value || 'unspecified');
+      const text = `Booking request from ${name}%0APhone: ${phone}%0AExperience: ${exp}%0APreferred: ${dt}`;
+      const target = 'https://wa.me/27727750313?text=' + text;
+      window.open(target, '_blank');
+    });
+  </script>
+  <script src="scripts/logo-reveal.js"></script>
+</body>
+</html>

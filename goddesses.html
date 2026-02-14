@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Goddesses — Small Heaven</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .goddesses-hero {
+      height: 75vh;
+      background: linear-gradient(135deg, #3d3630 0%, #2a2520 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .goddesses-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(212, 175, 146, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(232, 213, 204, 0.02) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .goddesses-hero-content {
+      position: relative;
+      z-index: 1;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .goddesses-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      color: var(--accent);
+      margin: 0 0 20px 0;
+      letter-spacing: 0.08em;
+      font-weight: 400;
+    }
+
+    .goddesses-hero .subline {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin: 0;
+      font-weight: 300;
+    }
+
+    .divider-line {
+      width: 40px;
+      height: 1px;
+      background: var(--accent);
+      margin: 24px auto;
+      opacity: 0.6;
+    }
+
+    .intro-block {
+      max-width: 700px;
+      margin: 60px auto;
+      text-align: center;
+      padding: 0 28px;
+      animation: fadeInUp 1.2s ease-out;
+    }
+
+    .intro-block p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin: 16px 0;
+      font-weight: 300;
+    }
+
+    .goddesses-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin: 60px 0;
+      animation: fadeIn 1.4s ease-out;
+    }
+
+    .goddess-card {
+      background: var(--card);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      transform: translateY(0);
+    }
+
+    .goddess-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 48px rgba(212, 175, 146, 0.15);
+    }
+
+    .goddess-card-image {
+      width: 100%;
+      height: 320px;
+      background: linear-gradient(135deg, #4a3d36 0%, #36322e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .goddess-card-image::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 30% 30%, rgba(212, 175, 146, 0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .goddess-card-content {
+      padding: 24px;
+      text-align: center;
+    }
+
+    .goddess-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin: 0 0 12px 0;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+    }
+
+    .goddess-descriptors {
+      color: var(--muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      margin: 0 0 16px 0;
+      font-weight: 300;
+    }
+
+    .goddess-descriptor-dot {
+      margin: 0 6px;
+    }
+
+    .goddess-bio {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 0;
+      font-weight: 300;
+    }
+
+    .boundaries-section {
+      background: rgba(58, 54, 50, 0.5);
+      border: 1px solid rgba(212, 175, 146, 0.1);
+      border-radius: 8px;
+      padding: 40px;
+      margin: 60px 0;
+      text-align: center;
+      animation: fadeIn 1.6s ease-out;
+    }
+
+    .boundaries-section p {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin: 12px 0;
+    }
+
+    .cta-section {
+      text-align: center;
+      margin: 60px 0;
+      animation: fadeIn 1.8s ease-out;
+    }
+
+    .cta-section .intro-line {
+      color: var(--muted);
+      font-style: italic;
+      font-size: 1.05rem;
+      margin-bottom: 24px;
+    }
+
+    .cta-outline {
+      display: inline-block;
+      padding: 14px 32px;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .cta-outline:hover {
+      background: rgba(212, 175, 146, 0.1);
+      box-shadow: 0 0 20px rgba(212, 175, 146, 0.2);
+    }
+
+    .footer-transition {
+      text-align: center;
+      padding: 40px 28px;
+      color: var(--muted);
+      font-style: italic;
+      font-size: 1rem;
+      border-top: 1px solid rgba(212, 175, 146, 0.1);
+      margin-bottom: 40px;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .goddesses-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+      .goddesses-hero h1 {
+        font-size: 2.8rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .goddesses-hero {
+        height: 60vh;
+      }
+      .goddesses-hero h1 {
+        font-size: 2.2rem;
+      }
+      .goddesses-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .intro-block {
+        margin: 40px auto;
+      }
+      .boundaries-section {
+        padding: 28px;
+        margin: 40px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html"><img src="assets/logo.png" alt="Small Heaven" style="height:70px;vertical-align:middle"></a>
+      <nav class="nav">
+        <a href="rituals.html">The Rituals</a>
+        <a href="about.html">About</a>
+        <a href="goddesses.html">Our Goddesses</a>
+        <a href="discretion.html">Discretion</a>
+        <a href="booking.html" class="btn">Book</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="goddesses-hero">
+    <div class="goddesses-hero-content">
+      <h1>Our Goddesses</h1>
+      <div class="divider-line"></div>
+      <p class="subline">Presence · Intuition · Respect</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="intro-block">
+      <p>Every goddess at Small Heaven is chosen for her calm presence, intuitive touch, and deep respect for boundaries.</p>
+      <p>They are here to guide your experience — gently, professionally, and intentionally.</p>
+    </section>
+
+    <section class="goddesses-grid">
+      <div class="goddess-card">
+        <div class="goddess-card-image">
+          <img src="assets/goddess-luna.svg" alt="Luna" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <div class="goddess-card-content">
+          <h2 class="goddess-name">Luna</h2>
+          <p class="goddess-descriptors">
+            Calm<span class="goddess-descriptor-dot">·</span>Intuitive<span class="goddess-descriptor-dot">·</span>Grounding
+          </p>
+          <p class="goddess-bio">Luna creates space for you to simply arrive. Her touch is grounding. Her presence is deeply attentive. With Luna, you'll find the quiet you've been seeking.</p>
+        </div>
+      </div>
+
+      <div class="goddess-card">
+        <div class="goddess-card-image">
+          <img src="assets/goddess-amber.svg" alt="Amber" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <div class="goddess-card-content">
+          <h2 class="goddess-name">Amber</h2>
+          <p class="goddess-descriptors">
+            Warm<span class="goddess-descriptor-dot">·</span>Sensual<span class="goddess-descriptor-dot">·</span>Responsive
+          </p>
+          <p class="goddess-bio">Amber reads you like poetry. She knows when to move slowly and when to deepen. With Amber, sensation becomes intentional. Every moment is felt.</p>
+        </div>
+      </div>
+
+      <div class="goddess-card">
+        <div class="goddess-card-image">
+          <img src="assets/goddess-serenity.svg" alt="Serenity" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <div class="goddess-card-content">
+          <h2 class="goddess-name">Serenity</h2>
+          <p class="goddess-descriptors">
+            Graceful<span class="goddess-descriptor-dot">·</span>Intuitive<span class="goddess-descriptor-dot">·</span>Confident
+          </p>
+          <p class="goddess-bio">Serenity moves with purpose and grace. She understands the language of breath and touch. With Serenity, you'll discover presence you didn't know was possible.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="boundaries-section">
+      <p>Every experience at Small Heaven is guided by <strong>mutual respect, clear boundaries, and consent.</strong></p>
+      <p>Our goddesses reserve the right to refuse any request that compromises comfort or professionalism.</p>
+    </section>
+
+    <section class="cta-section">
+      <p class="intro-line">When the connection feels right, the invitation is open.</p>
+      <a href="booking.html" class="cta-outline">Reserve Your Moment</a>
+    </section>
+
+    <div class="footer-transition">
+      Chosen with care. Welcomed with intention.
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p style="font-style:italic;margin-bottom:16px">Soft seduction. Sacred escape.</p>
+      <p><a href="https://www.instagram.com" style="color:var(--accent);text-decoration:none;margin-right:16px">Instagram</a> • <a href="discretion.html" style="color:var(--accent);text-decoration:none">Discretion & Boundaries</a></p>
+    </div>
+  </footer>
+</body>
+</html>

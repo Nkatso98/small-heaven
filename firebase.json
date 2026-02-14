@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      ".firebaserc",
+      "**/wp-theme/**",
+      "**/wp-content/**",
+      "**/.github/**",
+      "**/scripts/**",
+      "**/*.ps1",
+      "**/docker-compose.yml"
+    ],
+    "cleanUrls": true
+  }
+}
